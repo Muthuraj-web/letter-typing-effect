@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Cabin+Sketch&display=swap" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<style type="text/css">
+	#name{
+		display: none;
+	}
+	#displaytext{
+		display: inline;
+		font-size: 20px;
+		font-variant:small-caps;
+		font-weight: bold;
+	}
+	#font{
+		display: inline;
+		font-family: 'Cabin Sketch', cursive;
+	}
+	#underscore{
+		animation: opaquefade;
+		animation-duration:0.6s;   /* edit your animation time here */
+		animation-iteration-count: infinite;
+	}
+	@keyframes opaquefade{
+		from{
+			opacity: 1;
+		}
+		to{
+			opacity: 0;
+		}
+	}
+</style>
+<script type="text/javascript">
+	var namearr;
+	var handle;
+	var y=0;
+	var add="";
+	function run()
+	{
+		x=document.getElementById("name").innerHTML;
+		namearr=x.split("");
+	}
+	
+	function addingtext(){
+		add=add+namearr[y];
+        document.getElementById("displaytext").innerHTML=add;
+        y+=1;
+        if (y == x.length)
+        {
+        	clearInterval(handle);
+        }
+	}
+	function cal(){
+	handle = setInterval(addingtext,400);
+	console.log(add)
+    }
+    function onl(){
+    	run();
+    	cal();
+    }
+</script>
+</head>
+<body onload="onl()">
+<p id="name">muthu raj</p>             <!-- Write your name here -->
+<div style="width:50%;margin: auto;">
+	<div style="float: right;">
+		<h3 id="font">My Name is </h3>
+		<p id="displaytext"></p><span id="underscore" style="font-size: 20px">_</span>
+	</div>
+</div>
+</body>
+</html>
